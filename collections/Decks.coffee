@@ -24,15 +24,24 @@ class Deck extends Model
   addCard: (card) ->
     card?.update $set: deckId: @_id
 
+  prependCard: (card) ->
+    return unless card
+
+    firstCard = @findFirstCard()
+
+    rank = Math.ceil(firstCard?.rank or 0) - 1
+
+    card.update
+      $set:
+        deckId: @_id
+        rank: rank
+
   appendCard: (card) ->
     return unless card
 
-    topCard = @findCards(
-      sort: rank: -1
-      limit: 1
-    ).fetch()[0]
+    lastCard = @findLastCard()
 
-    rank = Math.ceil(topCard?.rank or 0) + 1
+    rank = Math.ceil(lastCard?.rank or 0) + 1
 
     card.update
       $set:
@@ -42,11 +51,20 @@ class Deck extends Model
   findCards: (options) ->
     Cards.find deckId: @_id, options
 
+  findOneCard: (options) ->
+    Cards.findOne deckId: @_id, options
+
   countCards: (options) ->
     @findCards(options).count()
 
   findRound: ->
     Rounds.findOne(@roundId)
+
+  findFirstCard: ->
+    @findOneCard(sort: rank: 1)
+
+  findLastCard: ->
+    @findOneCard(sort: rank: -1)
 
   sort: ->
     cards.sort (a, b) ->
