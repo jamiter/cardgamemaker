@@ -1,14 +1,7 @@
 .name= name
 
-ul.hand.card-list
+ul.hand.playing-card-list
   each cards
-    // var cl = "card " + (player.isHuman() ? '' : 'closed')
-    // - var color = player.isHuman() ? card.color : 'black'
-    
-    li.card(class="{{closedClass}}", style="background-color: {{color}};")
-      if ../isHuman
-        .type= type
-      else
-        .type UNO
+    +PlayerCard
 
   .clearfix

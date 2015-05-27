@@ -1,0 +1,14 @@
+h2
+  span= winnerName
+  span has won!
+
+table
+  thead
+    tr
+      th Name
+      th Score
+  tbody
+    each players
+      tr
+        td= name
+        td= calculateScore

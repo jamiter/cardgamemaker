@@ -11,3 +11,11 @@ mquandalle:jade
 coffeescript
 stylus
 accounts-base
+meteorhacks:flow-router
+meteorhacks:flow-layout
+accounts-ui
+accounts-password
+matb33:collection-hooks
+momentjs:moment
+aldeed:collection2
+materialize:materialize

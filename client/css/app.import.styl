@@ -2,11 +2,10 @@ scale = scale(0.8,0.8)
 
 body
   color #333
-  background #f4f4f4 url('/img/bg.png')
+  background #f4f4f4 //url('/img/bg.png')
 
 .player:not(.player-deck)
   padding 30px 0 0 20px
-  border-radius 5px
   border-color #ccc
   transform scale
   position fixed
@@ -20,7 +19,8 @@ body
     left 15px
 
   &.active
-    box-shadow 0 0 20px #777
+    // box-shadow 0 0 20px #777
+    border-bottom 4px solid green
 
   &.position1
     top 25%
@@ -39,13 +39,13 @@ body
     width 500px
     margin-left -10%
 
-.card-list
+.playing-card-list
   list-style-type none
   margin 0
   padding 0
   clear both
 
-  .card
+  .playing-card
     margin 0 -40px 0 0
     float left
     transition all .2s
@@ -56,7 +56,7 @@ body
     top 45%
     transform scale
 
-    .card
+    .playing-card
       position absolute
       cursor default
       right 1em
@@ -65,7 +65,7 @@ body
         margin 5px 0 0 -120px
 
   &.hand
-    .card:not(.closed):hover
+    .playing-card:not(.closed):hover
       z-index 10
       transform translate(0, -12px) rotate(4deg) scale(1.1,1.1)
 
@@ -89,15 +89,15 @@ body
   &.active
     box-shadow 0 0 10px #777
 
-  .card-list
+  .playing-card-list
     position absolute
     bottom 0
     left 2em
-    .card
+    .playing-card
       margin 0 -20px 1em 0
       transform rotate(-2deg)
 
-.card
+.playing-card
   position relative
   display block
   width 70px
@@ -107,6 +107,7 @@ body
   border-radius 3px
   border 5px solid white
   box-shadow -2px 2px 3px #333
+  box-sizing content-box
   color white
   font-size 22px
   text-shadow 1px 1px 0 #999
