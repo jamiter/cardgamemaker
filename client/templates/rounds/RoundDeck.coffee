@@ -18,6 +18,6 @@ Template.RoundDeck.events
       name: 'hand'
       playerId: player._id
 
-    hand.addCard card
+    hand.appendCard card
 
     round.nextTurn()
