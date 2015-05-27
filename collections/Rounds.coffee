@@ -59,7 +59,7 @@ class Round extends Model
     cards.forEach (card) ->
       card.addToDeck deckId
 
-  recycle: =>
+  recycle: ->
     temp = new Deck()
     temp.drawFrom @pile
 
