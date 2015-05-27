@@ -102,12 +102,9 @@ class Player extends Model
             name: 'deck'
             roundId: @roundId
 
-          card = Cards.findOne
-            deckId: deck._id
-          ,
-            sort: rank: 1
+          card = deck.findFirstCard()
 
-          card.addToDeck hand._id
+          hand.appendCard card
 
           setTimeout =>
             @findRound().nextTurn()
