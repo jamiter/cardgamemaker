@@ -7,12 +7,10 @@ Template.RoundDeck.events
       return
 
     player = Players.findOne
+      roundId: @roundId
       userId: Meteor.userId()
 
-    card = @findCards(
-      sort: rank: 1
-      limit: 1
-    ).fetch()[0]
+    card = @findFirstCard()
 
     hand = Decks.findOne
       name: 'hand'
