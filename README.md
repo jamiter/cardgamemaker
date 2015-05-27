@@ -2,4 +2,4 @@
 Make your own cardgame
 
 See the current version here:
-[uno.jamiter.com](https://uno.jamiter.com)
+[uno.jamiter.com](http://uno.jamiter.com)
